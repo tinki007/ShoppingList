@@ -11,14 +11,16 @@ public class Pdf {
     Document document = new Document();
     List list = new List(List.ORDERED,10);
 
-    public void createPdf(ArrayList shoppinglist) {
+    public void createPdf(ArrayList<String> shoppinglist) {
         try {
             PdfWriter.getInstance(document, new FileOutputStream("shoppinglist.pdf"));
             document.open();
             Paragraph paragraph = new Paragraph("Lista zakupow");
             paragraph.setAlignment(Element.ALIGN_CENTER);
             document.add(paragraph);
-            list.add(String.valueOf(shoppinglist));
+            for (String line : shoppinglist){
+                list.add(line + "\n");
+            }
             document.add(list);
             document.close();
         } catch (DocumentException e) {
