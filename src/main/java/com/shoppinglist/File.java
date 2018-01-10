@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class File {
-    int i = 1;
+    private int i = 1;
 
     public void createFile(ArrayList<String> shoppinglist) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("shoppinglist.txt"));

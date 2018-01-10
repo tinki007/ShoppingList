@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Pdf {
     Document document = new Document();
-    List list = new List(List.ORDERED,10);
+    List list = new List(List.ORDERED);
 
     public void createPdf(ArrayList<String> shoppinglist) {
         try {

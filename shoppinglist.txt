@@ -1,4 +1,0 @@
-1  mleko
-2  kawa
-3  herbata
-4  chipsy
