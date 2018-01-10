@@ -10,10 +10,9 @@ public class Main {
 		File file = new File();
 		Scanner scanner = new Scanner(System.in);
 		boolean quit = false;
-
-		while (!quit) {
-			Menu menu = new Menu();
-			Pdf pdf = new Pdf();
+		Menu menu = new Menu(); //wystarczy to raz zainicjalizować, nie musi być w pętli
+		Pdf pdf = new Pdf();
+		while (!quit) {1
 			menu.printMenu();
 			int choice = scanner.nextInt();
 			switch (choice) {

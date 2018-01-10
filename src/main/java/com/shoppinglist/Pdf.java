@@ -8,25 +8,38 @@ import java.util.ArrayList;
 
 
 public class Pdf {
-    Document document = new Document();
-    List list = new List(List.ORDERED);
+    //korzystaj z access modifierów:)
+    private Document document;
+    private PdfWriter writter;
+    private List list;
+
+    //pisz konstruktory!
+    public Pdf() {
+        this.document = new Document();
+        this.list = new List(List.ORDERED);
+    }
 
     public void createPdf(ArrayList<String> shoppinglist) {
         try {
-            PdfWriter.getInstance(document, new FileOutputStream("shoppinglist.pdf"));
-            document.open();
+            //nie znam tego frameworka, ale tworzysz instancję PffWritera i z niej wcale nie korzstasz. Co więcej ma on metodę close()
+            //którą najpewniej też trzeba wywołać przy zamykaniu resourceów
+            this.writter = PdfWriter.getInstance(this.document, new FileOutputStream("shoppinglist.pdf"));
+            this.document.open();
+
             Paragraph paragraph = new Paragraph("Lista zakupow");
             paragraph.setAlignment(Element.ALIGN_CENTER);
-            document.add(paragraph);
+            this.document.add(paragraph);
             for (String line : shoppinglist){
                 list.add(line + "\n");
             }
-            document.add(list);
-            document.close();
+            this.document.add(list);
         } catch (DocumentException e) {
             e.printStackTrace();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } finally { //resoucey zamykamy w finally, nigdy w tryu! Jak poleci Ci błąd, to będziesz miał niedomknięte resourcey!
+            this.document.close();
+            this.writter.close();
         }
     }
 }
