@@ -1,11 +1,13 @@
 package com.shoppinglist;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		ShoppingList shoppingList = new ShoppingList();
+		File file = new File();
 		Scanner scanner = new Scanner(System.in);
 		boolean quit = false;
 
@@ -29,6 +31,9 @@ public class Main {
 					break;
 				case 4:
 					pdf.createPdf(shoppingList.getShoppinglist());
+					break;
+				case 5:
+					file.createFile(shoppingList.getShoppinglist());
 					break;
 				case 6:
 					quit = true;
