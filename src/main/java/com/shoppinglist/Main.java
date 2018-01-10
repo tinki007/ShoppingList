@@ -12,7 +12,7 @@ public class Main {
 		boolean quit = false;
 		Menu menu = new Menu(); //wystarczy to raz zainicjalizować, nie musi być w pętli
 		Pdf pdf = new Pdf();
-		while (!quit) {1
+		while (!quit) {
 			menu.printMenu();
 			int choice = scanner.nextInt();
 			switch (choice) {
